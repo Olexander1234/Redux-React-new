@@ -18,7 +18,46 @@ const initialState = {
   };
 
 const rootReducer = (state = initialState, action)=>{
-return state
+switch (action.type) {
+  case 'tasks/addTask':
+    
+   
+    return {
+      ...state, 
+      tasks: [
+        ...state.tasks,
+        action.payload
+      ]
+    }
+
+    case 'tasks/deleteTask':
+    
+   
+    return {
+      ...state, 
+      tasks: [
+        state.tasks.filter((task)=>task.id !== action.payload)
+  
+      ]
+    }
+
+    case 'tasks/ToggleCompleted':
+  return {
+    ...state,
+    tasks: state.tasks.map((task) => {
+      if (task.id !== action.payload) {
+        return task;
+      }
+      return { ...task, completed: !task.completed };
+    }),
+  };
+    
+   
+   
+  default:
+    return state
+ 
+}
 }
 const enhancer = devToolsEnhancer() 
 export const store = createStore(rootReducer, enhancer)

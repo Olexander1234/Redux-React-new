@@ -5,7 +5,7 @@ import { TaskList } from "./TaskList/TaskList";
 import { useSelector } from "react-redux";
 
 export const App = () => {
-  const state = useSelector((state)=>state.task[1])
+  // const state = useSelector((state)=>state.task[1])
   return (
 
     <Layout>

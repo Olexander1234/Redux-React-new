@@ -1,15 +1,15 @@
 const { nanoid } = require("nanoid");
 
 export const addTask = (text)=>({
-    type: 'task/addTask', 
-    payLoad: {
+    type: 'tasks/addTask', 
+    payload: {
         id: nanoid(),
         text, 
         complited: false,
     }
 })
 export const deleteTask = (taskId)=>({
-    type: "task/deleteTask",
+    type: "tasks/deleteTask",
     payload: taskId
 })
 
